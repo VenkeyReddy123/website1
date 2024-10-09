@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="vendors/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="vendors/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="vendors/aos/css/aos.css">
+    <link rel="stylesheet" href="vendors/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .header {
+            height: 150px;
+            /* position: fixed; */
+
+        }
+
+        .img {
+            height: 90%;
+            width: 150px;
+        }
+
+        .btn-text {
+            font-size: 10px;
+
+            border-radius: 30px;
+            padding: 5px;
+
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        /* Define a class for the blue background */
+        .active-link {
+            background-color: #302CC1;
+            /* Your desired blue color */
+            border-radius: 5px;
+            /* Optional: Add rounded corners */
+        }
+
+        /* Default background for the Home button */
+        .default-active {
+            background-color: #302CC1;
+            /* Your desired blue color */
+            color: white;
+            /* Ensure the text is visible */
+            border-radius: 5px;
+            /* Optional: Add rounded corners */
+        }
+
+        .phone_number {
+            padding: 7px;
+            background-color: #00BD57;
+            border-radius: 15px;
+            font-size: 10px;
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .home {
+            padding: 10px;
+            background-color: #3C37F1;
+
+            .home-text1 {
+                font-size: 30px;
+                color: white;
+                font-weight: bolder;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .home-text2 {
+                color: white;
+                font-size: 20px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                margin-top: 20px;
+
+            }
+
+            .leanr-more {
+                font-size: 25px;
+                border-radius: 30px;
+                background-color: #1998FF;
+                color: white;
+                margin-top: 20px;
+
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+
+
+        }
+
+        .Serveces-text1 {
+            color: black;
+            font-size: 25px;
+
+
+
+        }
+
+
+
+        .Serveces-text2 {
+            color: black;
+            font-size: 40px;
+            font-weight: bold;
+
+
+
+            .services-box {
+                padding: 10px 10px 40px 0;
+            }
+
+
+        }
+
+        .s-head {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .s-text {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .footer {
+            color: #e5e5e5;
+            background: #3c37f1 url(../images/footer_bg.svg);
+            background-size: cover;
+            background-position: left bottom;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .footer .footer-top {
+            padding: 74px 0;
+        }
+
+        .footer .footer-top .footer-title {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.875rem;
+        }
+
+        .font-weight-bold {
+            font-weight: 600 !important;
+        }
+
+        .owl-dots {
+            display: none;
+            /* This will hide the entire dots section */
+        }
+
+        .footer-link {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .footer-bottom {
+            background-color: #4A45F2;
+            padding: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+        .people {
+            background: #a70ff6 url(../.-bg.svg);
+            padding: 60px 0;
+        }
+
+        .people h3 {
+            color: white;
+        }
+
+        .people .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .people .people-item {
+            width: 300px;
+            /* Define width of each card */
+            margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .people-icons {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .people .flipster-custom-nav {
+            list-style: none;
+            display: flex;
+            padding-left: 0;
+        }
+
+        .flipster-custom-nav-item {
+            margin-right: 10px;
+        }
+
+        .flipster-custom-nav-link {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            display: block;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .flipster-custom-nav-link.active {
+            background-color: #ff6347;
+            opacity: 1;
+        }
+
+        .people ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            /* Horizontal layout */
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            /* For smooth scrolling */
+        }
+
+        .people ul::-webkit-scrollbar {
+            display: none;
+            /* Hide scrollbar */
+        }
+
+        .people .people-item {
+            flex-shrink: 0;
+            /* Ensure cards maintain their size */
+            width: 300px;
+            margin-right: 20px;
+        }
+
+        .menu-container {
+            position: relative;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+        }
+
+        /* Initially hide the side panel by moving it to the right */
+        #sidePanel {
+            transform: translateX(100%);
+            /* Hide by moving it out of view to the right */
+            transition: transform 0.3s ease;
+            /* Smooth transition */
+            position: fixed;
+            /* Make it fixed so it stays in place */
+            right: 0;
+            /* Change 'left' to 'right' */
+            top: 0;
+            width: 250px;
+            /* Set the width for the panel */
+            height: 100vh;
+            /* Full screen height */
+            background-color: white;
+            /* Background color for the panel */
+            z-index: 1000;
+            /* Ensure it stays on top */
+        }
+
+        /* When the 'active' class is added, slide it into view */
+        #sidePanel.active {
+            transform: translateX(0);
+            /* Move the panel into view */
+        }
+
+
+        /* Optional: You can style the close icon */
+        #CloseIcon {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="header " style="background-color: #3C37F1;">
+        <div class="col-12 d-flex flex-row justify-content-between">
+            <div class="col-10 col-sm-4 mt-2">
+                <img class='img mt-auto mb-auto' src="./img2.png" alt="" sizes="" srcset="" height="">
+            </div>
+            <div class="d-block d-lg-none mt-auto mb-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="45px" fill="currentColor"
+                    class="bi bi-list menu-icon text-white mt-auto mb-auto" id="menuIcon" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+            </div>
+            <div class="d-none d-lg-block mt-auto mb-auto d-lg-flex flex-lg-row justify-content-around col-8">
+                <a href="#home" class="text-white btn-text nav-link default-active"><span
+                        class="ml-4 mr-4">Home</span></a>
+                <a href="#Serveces" class="text-white btn-text nav-link"><span class="ml-4 mr-4">Serveces</span></a>
+                <a href="#people" class="text-white btn-text nav-link"><span class="ml-4 mr-4">People</span></a>
+                <a href="#about" class="text-white btn-text nav-link"><span class="ml-4 mr-4">About</span></a>
+                <a href="#Clients" class="text-white btn-text nav-link"><span class="ml-4 mr-4">Clients</span></a>
+                <span class="phone_number"><span class="ml-4 mr-4">+91 90594 09535</span></span>
+            </div>
+        </div>
+    </div>
+    <div id="home" class="home">
+        <div class="d-md-flex flex-md-row">
+            <div class="col-12 col-md-6">
+                <div class="col-12">
+                    <span class="home-text1 mt-4">We help empowering education through effective strategies</span>
+                    <span class="d-flex flex-column home-text2">
+                        <span> Analyzing your needs</span>
+                        <span>Identifying skill gaps</span>
+                        <span> Prioritizing and planning</span>
+                        <span>Developing and delivering training strategies</span>
+                    </span>
+                    <span class="leanr-more btn p-2"><span class="ml-4 mr-4">Leanr more</span></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 d-flex flex-row justify-content-around">
+                <img src="./img1.png" class="mt-auto mb-auto ml-auto img1" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+
+    <div id="Serveces" class="col-12 mt-5 Serveces">
+        <div class="col-12 d-flex flex-column">
+            <span class="Serveces-text1">We’re offering</span>
+            <span class="Serveces-text2">Strategies for Education</span>
+        </div>
+        <div class="col-12 mt-5 row Serveces-rows">
+            <div class="col-sm-4 text-center text-lg-left">
+                <div class="services-box pb-0" data-aos-easing="linear">
+                    <img src="./saving-strategy.svg" alt="saving-strategy" data-aos="zoom-in">
+                    <h6 class="text-dark mb-3 mt-4 font-weight-medium s-head">Training
+                        Strategy
+                    </h6>
+                    <p class="s-text">Training strategy is designed to achieve your educational goals, such as teaching
+                        a new skill or
+                        upgrading your trainers
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 text-center text-lg-left">
+                <div class="services-box" data-aos-easing="linear">
+                    <img src="./design-development.svg" alt="design-development" data-aos="zoom-in">
+                    <h6 class="text-dark mb-3 mt-4 font-weight-medium s-head">Design &
+                        Development
+                    </h6>
+                    <p class="s-text">Program, design and develop curriculum with high quality content that are current
+                        and industry
+                        specific
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 text-center text-lg-left">
+                <div class="services-box" data-aos-easing="linear">
+                    <img src="./digital-strategy.svg" alt="digital-strategy" data-aos="zoom-in">
+                    <h6 class="text-dark mb-3 mt-4 font-weight-medium s-head">Digital
+                        Strategy
+                    </h6>
+                    <p class="s-text">Digital learning and transformation technologies that will help you create and
+                        deliver new value
+                        online education
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 text-center text-lg-left">
+                <div class="services-box  pb-lg-0" data-aos-easing="linear">
+                    <img src="./digital-marketing.svg" alt="digital-marketing" data-aos="zoom-in">
+                    <h6 class="text-dark mb-3 mt-4 font-weight-medium s-head">Digital
+                        Marketing
+                    </h6>
+                    <p class="s-text">Generate traffic to your courses online, increase consumer interest and engage
+                        your target
+                        audience relevant to each of your courses
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 text-center text-lg-left">
+                <div class="services-box pb-lg-0" data-aos-easing="linear">
+                    <img src="./growth-strategy.svg" alt="growth-strategy" data-aos="zoom-in">
+                    <h6 class="text-dark mb-3 mt-4 font-weight-medium s-head">Growth
+                        Strategy
+                    </h6>
+                    <p class="s-text">Assess and plan the requirements for growth through data analytics of the
+                        demographics, knowledge
+                        base and reports
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 text-center text-lg-left">
+                <div class="services-box" data-aos-easing="linear">
+                    <img src="./integrated-marketing.svg" alt="integrated-marketing" data-aos="zoom-in">
+                    <h6 class="text-dark mb-3 mt-4 font-weight-medium s-head">Integrated
+                        Marketing
+                    </h6>
+                    <p class="s-text">Generate unified and seamless experience for consumers to interact with your
+                        educational
+                        institution
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="people" id="people">
+        <br><br><br><br><br><br>
+        <div class="container">
+            <div class="row  mt-md-0 mt-lg-4">
+                <div class="col-sm-6">
+                    <h5>
+                        <p class="font-weight-bold text-white">We are the one</p>
+                    </h5>
+                    <h3 class="font-weight-medium text-white mb-5">Who connect the...<br>DOTS!</h3>
+                    <ul class="flipster-custom-nav">
+                        <li class="flipster-custom-nav-item">
+                            <a href="javascript:;" class="flipster-custom-nav-link active" title="0"></a>
+                        </li>
+                        <li class="flipster-custom-nav-item">
+                            <a href="javascript:;" class="flipster-custom-nav-link" title="1"></a>
+                        </li>
+                        <li class="flipster-custom-nav-item">
+                            <a href="javascript:;" class="flipster-custom-nav-link" title="2"></a>
+                        </li>
+                        <li class="flipster-custom-nav-item">
+                            <a href="javascript:;" class="flipster-custom-nav-link" title="3"></a>
+                        </li>
+                        <li class="flipster-custom-nav-item">
+                            <a href="javascript:;" class="flipster-custom-nav-link" title="4"></a>
+                        </li>
+                        <li class="flipster-custom-nav-item">
+                            <a href="javascript:;" class="flipster-custom-nav-link" title="5"></a>
+                        </li>
+                        <li class="flipster-custom-nav-item">
+                            <a href="javascript:;" class="flipster-custom-nav-link" title="6"></a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-sm-12">
+                    <div id="people-flipster">
+                        <ul>
+                            <li>
+                                <div class="people-item">
+                                    <img style="width:50px;height:50px;" src="./people1.jpg" alt="icon"
+                                        class="people-icons">
+                                    <br>
+                                    <br>
+                                    <h6 class="people-author">Anumukonda Ramesh</h6>
+                                    <p class="people-destination">Gamer at Heart</p>
+                                    <p>Loves Games and has keen eye to acknowledge and adore Gamification in every
+                                        aspect of life. Potently is a Chief Catalyst leading Training and Skill
+                                        development programs, Teacher Training programs, XR initiatives (AR/VR/MR) and
+                                        Game development.</p>
+                                    <p>His hobbies are playing games, farming, meditation that complement his
+                                        professional aspirations.</p>
+                                    <div><a href="https://www.linkedin.com/in/hobbyployment/"
+                                            class="fa fa-linkedin"></a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="people-item">
+                                    <img style="width:50px;height:50px;" src="./people2.jpg" alt="icon"
+                                        class="people-icons">
+                                    <br>
+                                    <br>
+                                    <h6 class="people-author">Jhansi Rani</h6>
+                                    <p class="people-destination">People Manager</p>
+                                    <p>Jhansi loves people and strives to inspire the best out of individuals and align
+                                        them with themselves and the teams objectives. As the people manager she plays a
+                                        role to check work life balance at A Plus Associates.</p>
+                                    <p>When not working she loves chanting Bhagavatgeeta and teaches kids to chant
+                                        Geeta. Her hobbies include Traveling, exploring new destinations and is very
+                                        fond of Tiruvannamalai.</p>
+                                    <div><a href="https://www.linkedin.com/in/naga-jhansi-rani-25213536/"
+                                            class="fa fa-linkedin"></a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="people-item">
+                                    <img style="width:50px;height:50px;" src="./people3.jpg" alt="icon"
+                                        class="people-icons">
+                                    <br>
+                                    <br>
+                                    <h6 class="people-author">Riyaz Babu</h6>
+                                    <p class="people-destination">In the mastery of Goodness</p>
+                                    <p>Fascinated by Nature, Science and Technology. He Loves Human Beings and among
+                                        them, Children the Most and Old and needy the next. He is Passionate about work.
+                                        At work, he Loves Creativity, Technology, Techniques, Quality and Efficiency.
+                                    </p>
+                                    <p>Not many know about his Love for Animals and Hobbies like Raising Domestic Pets.
+                                        Enjoys Active Sports.</p>
+                                    <div><a href="https://www.linkedin.com/in/riyaz-babu-noor-sheik-7b33891/"
+                                            class="fa fa-linkedin"></a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="people-item">
+                                    <img style="width:50px;height:50px;" src="./people4.jpg" alt="icon"
+                                        class="people-icons">
+                                    <br>
+                                    <br>
+                                    <h6 class="people-author">Prakash Ramadass</h6>
+                                    <p class="people-destination">Technologist at the core</p>
+                                    <p>Mentor, product architect and visionary. He is exploring Unreal Engine while
+                                        working out possibilities to expand its use across multiple industry segments.
+                                        Architecting solutions using varied technologies of XR, AI/ML, computer vision,
+                                        IOT and blockchain.</p>
+                                    <p>When not at work, you can find him meditating, trekking and nature camping around
+                                        the Himalayan region.</p>
+                                    <div><a href="https://www.linkedin.com/in/prakashramadass/"
+                                            class="fa fa-linkedin"></a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="people-item">
+                                    <img style="width:50px;height:50px;" src="./people5.jpg" alt="icon"
+                                        class="people-icons">
+                                    <br>
+                                    <br>
+                                    <h6 class="people-author">Priyanka Kansara</h6>
+                                    <p class="people-destination">Gamification of School Education</p>
+                                    <p>A creative teacher from scientific background with a mastery at involving and
+                                        motivating students of all ability levels. Being a bachelor's in Education she
+                                        has an adequate understanding of child psychology. She believes in the “whole
+                                        child approach”.</p>
+                                    <p>Enjoys spending considerable time on plant nurturing and care, observing nature
+                                        and farming.</p>
+                                    <div><a href="https://www.linkedin.com/in/priyanka-kansara-310902217/"
+                                            class="fa fa-linkedin"></a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="people-item">
+                                    <img style="width:50px;height:50px;" src="./people6.jpg" alt="icon"
+                                        class="people-icons">
+                                    <br>
+                                    <br>
+                                    <h6 class="people-author">Abhishek Makay</h6>
+                                    <p class="people-destination">Game Designer for open world</p>
+                                    <p>A passionate gamer by nature, Abhishek combines creativity, innovation and
+                                        technology working with A Plus A Associates to build and deliver on ‘Unreal’. He
+                                        is also a 3D artist which includes sculpting and texturing. He has a keen
+                                        understanding of the Technical and Art.</p>
+                                    <p>In his leisure he also loves to sketch, listen to music and explore culinary
+                                        palates.</p>
+                                    <div><a href="https://www.linkedin.com/in/abhishek-makay-716446181/"
+                                            class="fa fa-linkedin"></a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="people-item">
+                                    <img style="width:50px;height:50px;" src="./people7.jpg" alt="icon"
+                                        class="people-icons">
+                                    <br>
+                                    <br>
+                                    <h6 class="people-author">Jay Tanna</h6>
+                                    <p class="people-destination">Management Trainer with a great vision</p>
+                                    <p>An engineering graduate with a heart full of intent to serve the country through
+                                        education. He has inspired many youths across the country through his dynamic
+                                        and engaging workshops on India and leadership. He has been associated with
+                                        Chinmaya Mission since childhood.</p>
+                                    <p>He is a Yuvaveer of who sacrificed one whole year of his life to serve his
+                                        motherland. He loves travel and adventure.</p>
+                                    <div><a href="https://www.linkedin.com/in/jay-tanna-8000b8b3"
+                                            class="fa fa-linkedin"></a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="our-process" id="about">
+        <div class="container">
+            <br><br><br><br><br><br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h5 class="text-dark">Our process</h5>
+                    <h3 class="font-weight-medium text-dark">Discover your idea with us!</h3>
+                    <h5 class="text-dark mb-3">Imagination will take us everywhere</h5>
+                    <p class="font-weight-medium mb-4">XR workflow for major industries, <br>
+                    </p>
+                    <div class="d-flex justify-content-start mb-3">
+                        <img src="./tick.png" alt="tick" class="mr-3 tick-icon">
+                        <p class="mb-0">Automotive</p>
+                    </div>
+                    <div class="d-flex justify-content-start mb-3">
+                        <img src="./tick.png" alt="tick" class="mr-3 tick-icon">
+                        <p class="mb-0">Architecture</p>
+                    </div>
+                    <div class="d-flex justify-content-start mb-3">
+                        <img src="./tick.png" alt="tick" class="mr-3 tick-icon">
+                        <p class="mb-0">Education</p>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <img src="./tick.png" alt="tick" class="mr-3 tick-icon">
+                        <p class="mb-0">Games</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <img src="./idea.png" alt="idea" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- --------------- -->
+    <div id="Clients" class="col-12 Clients">
+        <div>
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-sm-12">
+                        <p class="d-sm-flex justify-content-between align-items-center mb-2">
+                            <br>
+                            <br>
+                            <br>
+                        <p></p>
+                        <h3 class="font-weight-medium text-dark ">Our Clients</h3>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-5">
+                <div class="owl-carousel-projects owl-carousel owl-theme row row" style="overflow: hidden;">
+                    <div class="item col-sm-4">
+                        <img src="./apita.png" alt="slider" width="auto" height="auto">
+                    </div>
+                    <div class="item  col-sm-4">
+                        <img src="./cems.png" alt="slider" width="auto" height="auto">
+                    </div>
+                    <div class="item  col-sm-4">
+                        <img src="./MDEC.png" alt="slider" width="100%" height="auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <section class="contactus" id="contact">
+        <div class="container">
+            <br><br><br><br><br><br>
+            <div class="row mb-5 pb-5">
+                <div class="col-sm-5">
+                    <img src="./contact.jpg" alt="contact" class="img-fluid">
+                </div>
+                <div class="col-sm-7">
+                    <h3 class="font-weight-medium text-dark mt-5 mt-lg-0">Get in touch with us</h3>
+                    <h5 class="text-dark mb-5">Our executives will get back to you soon</h5>
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" placeholder="Name*">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="mail" placeholder="Email*">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <textarea name="message" id="message" class="form-control" placeholder="Message*"
+                                        rows="5"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <a href="#" class="btn btn-primary">SEND</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <address>
+                            <p>
+                                A Plus Associates LLP
+                            </p>
+                            <p class="mb-4">
+                                C/o K.A.V.A. And Associates
+                                4th Floor, Unit 402, Bldg-A,
+                                Suashish IT Park,
+                                Dattapada Road, Borivali West
+                                Mumbai, 400066
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <p class="mr-4 mb-0">+91 83692 68851</p>
+                                <a href="mailto:ramesh@aplus.associates"
+                                    class="footer-link text-white">ramesh@aplus.associates</a>
+                            </div>
+                        </address>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4 d-flex flex-column mt-4 ">
+                                <h6 class="footer-title">Social Share</h6>
+                                <div class="list-footer d-flex flex-column justify-content-start text-white">
+                                    <a href="#home" class="footer-link text-white mt-3">Home</a>
+                                    <a href="#Serveces" class="footer-link text-white mt-3">Services</a>
+                                    <a href="#people" class="footer-link text-white mt-3">People</a>
+                                    <a href="#about" class="footer-link text-white mt-3">About</a>
+                                    <a href="#Clients" class="footer-link text-white mt-3">Clients</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 mt-4 d-flex flex-column">
+                                <h6 class="footer-title">Product</h6>
+                                <div class="list-footer d-flex flex-column justify-content-start text-white">
+                                    <a href="#" class="footer-link text-white mt-3">Training Strategy</a>
+                                    <a href="#" class="footer-link text-white mt-3">Design & Development</a>
+                                    <a href="#" class="footer-link text-white mt-3">Growth Strategy</a>
+                                    <a href="#" class="footer-link text-white mt-3">Digital Strategy</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 mt-4 d-flex flex-column">
+                                <h6 class="footer-title">Company</h6>
+                                <div class="list-footer d-flex flex-column justify-content-start text-white">
+                                    <a href="#" class="footer-link text-white mt-3">Partners</a>
+                                    <a href="#" class="footer-link text-white mt-3">Investors</a>
+                                    <a href="#" class="footer-link text-white mt-3">Partners</a>
+                                    <a href="#" class="footer-link text-white mt-3">FAQ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1">© 2021 <a href="https://www.aplusassociates.com"
+                                target="_blank">APlus Associates</a><br>All rights reserved.</p>
+                    </div>
+                    <div>
+                        <div class="d-flex">
+                            <a href="http://aplusassociates.com/privacy.html"
+                                class="text-small text-white mx-2 footer-link">Privacy Policy </a>
+                            <a href="#" class="text-small text-white mx-2 footer-link">Customer Support </a>
+                            <a href="#" class="text-small text-white mx-2 footer-link">Careers </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="menu-container card p-2">
+        <div class="side-panel d-flex flex-column mb-5" id="sidePanel">
+            <div class="d-flex flex-row justify-content-end mb-5" style="width: 100%;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="currentColor"
+                    class="bi bi-list menu-icon text-danger mt-auto mb-auto" id="CloseIcon" viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                </svg>
+            </div>
+            <div class="d-flex flex-column">
+                <a href="#home" class="text-dark btn-text nav-link default-active"><span
+                        class="ml-4 mr-4">Home</span></a>
+                <a href="#Serveces" class="text-dark btn-text nav-link"><span class="ml-4 mr-4">Serveces</span></a>
+                <a href="#people" class="text-dark btn-text nav-link"><span class="ml-4 mr-4">People</span></a>
+                <a href="#about" class="text-dark btn-text nav-link"><span class="ml-4 mr-4">About</span></a>
+                <a href="#Clients" class="text-dark btn-text nav-link"><span class="ml-4 mr-4">Clients</span></a>
+                <span class="phone_number"><span class="ml-4 mr-4">+91 90594 09535</span></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendors/base/vendor.bundle.base.js"></script>
+    <script src="vendors/owl.carousel/js/owl.carousel.js"></script>
+    <script src="vendors/aos/js/aos.js"></script>
+    <script src="vendors/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="js/template.js"></script>
+    <script src="script.js"></script>
+    <script>
+    </script>
+
+</body>
+
+</html>
